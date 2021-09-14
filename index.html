@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Emoji Memory Game</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+        <script src="emojigame.js" defer></script>
+    </head>
+    <body>
+        
+        <div class="main-container">
+            <div class="column left">
+                <div class="menu-container clearfix">
+                    <div class="logo-container flex-center-rowwrap">
+                        <img src="img/emg-logo.png" alt="Emoji Memory Game Logo">
+                        <p>&copy;2021. Emoji Memory Game. All Rights Reserved.</p>
+                    </div>
+                   
+                    <div class="menu-container flex-center-colwrap">
+                        <div id="instructions-btn" class="menu-btn paytone">How to Play</div>
+                        <div id="newgame-btn" class="menu-btn paytone">New Game</div>
+                        <div id="settings-btn" class="menu-btn paytone">Settings</div>
+                    </div>
+                </div>
+            </div>
+            <div class="column right flex-center-colwrap">
+                
+                <div class="game-container clearfix flex-center-colwrap">
+                    
+
+                    <div id="instructions" class="instructions middle">
+                        <h1 class="paytone">How to Play</h1>
+                        <p>Remember the emoji sequence that will be flashed on the screen and input the correct combination to win the round. You only get one shot for each round. Each correct answer will win you points. Each level of difficulty will have more items in the sequence and will give you higher points. The goal of the game is to beat your highest score. Yes! You are your own Archnemesis!</p><br>
+                        <p>Good luck and enjoy!</p>                      
+                    </div>
+
+                    <div id="settings" class="settings middle">
+                        <h1 class="paytone">Settings</h1> <br>
+                        <div class="difficulty">
+                            <h3>Difficulty</h3>
+                            <button id="easy-btn" class="button">Easy</button>    
+                            <button id="medium-btn" class="button">Medium</button> 
+                            <button id="hard-btn" class="button">Hard</button>                                
+                        </div>
+                        <div class="music">
+                            <h3>Music</h3>
+                            <button id="on-btn" class="button">On</button>    
+                            <button id="off-btn" class="button">Off</button>
+                            <p>Music by: <a href="https://soundcloud.com/lorenz-gustav-gomez" target="_blank">@peacefulorenz</a></p>
+                        </div>                       
+                       <audio src="audio/emg-ost.mp3" id="music" loop></audio>                
+                    </div>
+
+                    <div class="emoji-sequence-container flex-center-colwrap middle">
+                        <h2 id="emoji-counter" class="emoji-counter paytone middle"> </h2>
+                        <img id="emoji-carousel" class="emoji-carousel middle" >
+                        
+                    </div>
+                    <div class="player-sequence-container flex-align-center ">
+                        <img id="player-carousel" class="player-carousel" >
+                    </div>
+                    <div class="buttons-container flex-center-spacearound-colwra">
+                        
+                        <div id="check-btn"class="check-btn paytone">Check my answer!</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

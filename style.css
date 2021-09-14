@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;  
+}
+.paytone{
+    font-family: 'Paytone One', sans-serif;
+}
+.middle{
+    position: absolute;
+    top: 40%;
+    left: 63%;
+    transform: translate(-50%,-50%);
+}
+.flex-align-center{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.flex-center-colwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    text-align: center;
+}
+.flex-center-spacearound-colwrap{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-flow: column wrap;
+    text-align: center;
+}
+.flex-center-rowwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    text-align: center;
+}
+.clearfix::after{
+    content: '';
+    display: none;
+    clear: both;
+}
+.main-container{
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+.column {
+    padding: 20px;
+    
+}
+.left {
+    height: 100.5vh;
+    width: 25%; 
+    background: linear-gradient(to top, #341e63 0%, #000000 100%);
+}
+.logo-container img{
+    width: 85%;
+    margin: auto;
+}
+.right {
+    width: 75%;
+    height: 100.5vh;
+    border: 15px solid indigo; 
+    background-color: #790679;   
+}
+.instructions,
+.settings,
+.buttons-container{
+    display: none;
+    margin: auto;
+}
+.thoughts-container #emoji-carousel,
+.thoughts-container #emoji-counter{
+    position: absolute;
+    top: 100px;
+    display: none;
+}
+.emoji-sequence-container,
+.player-sequence-container{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+.player-sequence-container{
+    top: 10%;
+}
+.emoji-sequence-container{
+    top: 40%;
+}
+
+.emoji-carousel{
+    width: 75%;
+    margin: auto;
+    position: absolute;
+    top: 60%;
+    left: 53%;
+    transform: translate(-50%,-50%);
+}
+.emoji-counter{
+    position: absolute;
+    top: 10%;
+    left: 51%;
+    margin-bottom: 10px;
+    color:yellow;
+}
+.player-carousel{
+    margin: auto;
+    margin-top: 10px;
+    width: 70%;
+}
+.emojiButton{ 
+    bottom: 20%;
+    width: 10%;
+    cursor: pointer;
+    margin: 0 5px 0 5px; 
+}
+.buttons-container{
+    position: fixed;
+    bottom: 10px;
+}
+.instructions{
+    margin-top: 25px;
+}
+.settings{
+    margin-top: 0;
+}
+.music p{
+    margin-top: 20px;
+}
+.active{
+    z-index: 1000;
+    display: block;
+}
+audio{
+    display: none;
+}
+.menu-btn{
+    width: 90%;
+    height: 10vh;
+    text-align: center;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    border-radius: 40px;
+    box-shadow: 5px 5px 5px #000;
+    background: indigo;
+    color: #fff;
+    cursor: pointer;
+}
+.menu-btn:nth-of-type(1){
+    margin-top: 30px;
+}
+.logo-container p{
+    position: absolute;
+    bottom: 10px;
+    font-size: 9px;
+    color: gainsboro;
+} 
+.buttons-container{
+    height: 35vh;
+
+}
+.check-btn{
+    background: #fff;
+    position: absolute;
+    bottom: 15px;
+    left: 35%;
+    color: #fff;
+    width: 200px;
+    padding: 15px;
+    border-radius: 40px;
+    border: 1px solid black;
+    background: indigo;
+    box-shadow: 5px 5px 5px #000;
+    margin: auto;
+    cursor: pointer;
+}
+.button{
+    width: 100px;
+    border-radius: 30px;
+    background: indigo;
+    color: #fff;
+    cursor: pointer;
+    border-color: black;   
+}
