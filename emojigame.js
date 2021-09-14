@@ -125,17 +125,17 @@ function checkAnswer(){
     });
     
     if(areEqual == true && difficulty == 3){
-        alert('Well Done! Your memory is AWESOME!');
+        alert('Well Done! Your memory is IMPRESSIVE!');
         score+=5
         myScore.textContent = `Score: ${score}`;
 
     } else if (areEqual == true && difficulty == 5){
-        alert('Well Done! Your memory is AWESOME!');
+        alert('Well Done! Your memory is IMPRESSIVE!');
         score+=10;
         myScore.textContent = `Score: ${score}`;
 
     } else if (areEqual == true && difficulty == 7){
-        alert('Well Done! Your memory is AWESOME!');
+        alert('Well Done! Your memory is IMPRESSIVE!');
         score+=20;
         myScore.textContent = `Score: ${score}`;
 

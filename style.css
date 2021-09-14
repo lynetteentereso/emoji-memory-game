@@ -55,7 +55,6 @@
 .logo-container img{
     width: 85%;
     margin: auto;
-    z-index: 900;
 }
 .right {
     width: 75%;
@@ -78,7 +77,8 @@
     justify-content: flex-end;
 }
 .banner{
-    width: 70%;
+    width: 80%;
+    margin-top: 20px;
 }
 .instructions,
 .settings,
@@ -201,6 +201,9 @@ audio{
 /*** Media Queries - Default is based on Small Devices (731px to 823px) ***/
 
 @media only screen and (max-width: 730px) and (orientation: landscape){
+    .banner{
+        margin-top: 40px;
+    }
     .logo-container{
         padding: 0;
     }
@@ -240,7 +243,7 @@ audio{
 
 @media only screen and (min-width: 1024px) and (orientation: landscape){
     .banner{
-        margin-top: 100px;
+        margin-top: 160px;
     }
     .logo-container img{
         width: 100%;
@@ -279,7 +282,8 @@ audio{
 
 @media only screen and (min-width: 1200px) and (orientation: landscape){
     .banner{
-        margin-top: 10px;
+        margin-top: 30px;
+        width: 70%;
     }
     .menu-btn:nth-of-type(1){
         margin-top: 20px;
@@ -301,6 +305,9 @@ audio{
 }
 
 @media only screen and (min-width: 1500px) and (orientation: landscape){
+    .banner{
+        margin-top: 120px;
+    }
     .menu-btn:nth-of-type(1){
         margin-top: 40px;
     }
