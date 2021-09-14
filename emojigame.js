@@ -101,6 +101,7 @@ function emojiArrayImage() {
 
     if(counter > emojiArray.length ){
         clearInterval(interval);
+        checkButton.style.visibility =  'visible';
         buttonsContainer.style.display = 'block';
         emojiCarousel.src = '';
         emojiCarousel.style.display = 'none';
@@ -118,7 +119,7 @@ myScore.style.color = '#fff';
 scoreContainer.appendChild(myScore);
 
 function checkAnswer(){
-
+    checkButton.style.visibility =  'hidden';
     let areEqual = emojiArray.length == playerArray.length && emojiArray.every(function(element, index) {
         return element === playerArray[index]; 
     });
