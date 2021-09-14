@@ -35,6 +35,7 @@ offButton.style.borderColor = 'yellow';
 mainEmojis.forEach(emoji => {
     let emojiButton = document.createElement('img');
     emojiButton.setAttribute('src', `img/${emoji}.png`);
+    emojiButton.alt = `${emoji} emoji image`
     emojiButton.classList.add('emojiButton');
 
     emojiButton.addEventListener('click', () => {
@@ -52,6 +53,7 @@ function playerArrayImage() {
     playerInput.style.display = 'block';
     banner.style.display = 'none';
     playerInput.src = `img/${playerArray[userIndex]}.png`;
+    playerInput.alt = `${playerArray[userIndex]} emoji image`
     userIndex++;  
     
     if(playerArray.length>emojiArray.length){
@@ -96,6 +98,7 @@ let counter = 0;
 function emojiArrayImage() {   
     
     emojiCarousel.src = `img/${emojiArray[counter]}.png`;
+    emojiCarousel.alt = `${emojiArray[counter]} emoji image`
     emojiCounter.innerText = counter+1;
     counter++;
 
