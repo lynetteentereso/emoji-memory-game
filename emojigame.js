@@ -49,7 +49,7 @@ mainEmojis.forEach(emoji => {
 let userIndex = 0;
 function playerArrayImage() { 
     emojiContainer.style.display = 'none';
-    playerContainer.style.visibility = 'visible';
+    playerContainer.style.display = 'block';
     playerInput.style.display = 'block';
     banner.style.display = 'none';
     playerInput.src = `img/${playerArray[userIndex]}.png`;
@@ -176,8 +176,8 @@ newGame.addEventListener('click', () => {
     
     emojiContainer.style.display = 'block'
     settings.classList.remove('active');
-    playerInput.classList.add('active');
-    playerContainer.classList.add('active');
+    playerInput.classList.remove('active');
+    playerContainer.classList.remove('active');
     startNewGame()
 });
 
@@ -190,6 +190,7 @@ function loadInstructions(){
     playerInput.style.display = 'none';
     allScoresContainer.style.visibility= 'hidden';
     instructions.classList.add('active');
+    clearInterval(interval);
 
 }
 gameInstructions.addEventListener('click', loadInstructions);
@@ -201,10 +202,11 @@ function loadSettings(){
     document.querySelector('.instructions').style.display = 'none';
     allScoresContainer.style.visibility= 'hidden';
     settings.classList.add('active');
-    playerInput.classList.remove('active');
+    playerContainer.style.display = 'none';
+    playerInput.style.display = 'none';
     instructions.classList.remove('active');
     banner.style.display = 'none';
-
+    clearInterval(interval);
 }
 gameSettings.addEventListener('click', loadSettings);
 
@@ -215,6 +217,7 @@ easyButton.addEventListener('click', () => {
     easyButton.style.borderColor = 'yellow';
     mediumButton.style.borderColor = 'black';
     hardButton.style.borderColor = 'black';
+    hardButton.style.zIndex = '600';playerInput.style.display = 'none';
 });
 
 mediumButton.addEventListener('click', () => {
