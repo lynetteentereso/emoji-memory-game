@@ -9,7 +9,10 @@ let playerContainer = document.querySelector('.player-sequence-container');
 let emojiContainer = document.querySelector('.emoji-sequence-container')
 let newGame = document.getElementById('newgame-btn');
 let gameInstructions = document.getElementById('instructions-btn');
-let gameSettings = document.getElementById('settings-btn')
+let gameSettings = document.getElementById('settings-btn');
+let allScoresContainer = document.querySelector('.score-container');
+let scoreContainer = document.querySelector('.score');
+let highScoreContainer = document.querySelector('.highscore');
 let instructions = document.querySelector('.instructions');
 let settings = document.querySelector('.settings');
 let emojiCarousel = document.getElementById('emoji-carousel');
@@ -22,9 +25,9 @@ let checkButton = document.getElementById('check-btn');
 let onButton = document.getElementById('on-btn');
 let offButton = document.getElementById('off-btn');
 let myMusic = document.getElementById('music');
-easyButton.style.borderColor = 'gainsboro';
-offButton.style.borderColor = 'gainsboro';
-
+let banner = document.getElementById('banner');
+easyButton.style.borderColor = 'yellow';
+offButton.style.borderColor = 'yellow';
 
 
 //Function to create emoji buttons and add user input to playerArray[]
@@ -45,10 +48,10 @@ mainEmojis.forEach(emoji => {
 let userIndex = 0;
 function playerArrayImage() { 
     emojiContainer.style.display = 'none';
-    playerContainer.style.display = 'block';
+    playerContainer.style.visibility = 'visible';
     playerInput.style.display = 'block';
+    banner.style.display = 'none';
     playerInput.src = `img/${playerArray[userIndex]}.png`;
-    playerInput.style.width = '70%';
     userIndex++;  
     
     if(playerArray.length>emojiArray.length){
@@ -76,6 +79,8 @@ function startNewGame (){
     emojiArrayImage();
 
     buttonsContainer.style.display = 'none';
+    banner.style.display = 'none';
+    allScoresContainer.style.visibility= 'visible';
     document.querySelector('.instructions').style.display = 'none';
     document.querySelector('.settings').style.display = 'none';
     emojiCarousel.style.display = 'block';
@@ -83,11 +88,13 @@ function startNewGame (){
     playerInput.src = 'img/blank.png';
     userIndex=0;
     counter=0;  
-    interval = setInterval(emojiArrayImage, 300);   
+    interval = setInterval(emojiArrayImage, 2000);   
 }
 
 let counter = 0;
+
 function emojiArrayImage() {   
+    
     emojiCarousel.src = `img/${emojiArray[counter]}.png`;
     emojiCounter.innerText = counter+1;
     counter++;
@@ -102,16 +109,13 @@ function emojiArrayImage() {
     }        
 } 
 
-//Function to evaluate player's answer and add score
+//Function to evaluate player's answer and add score if correct, and update high score
 
 const myScore = document.createElement('p');
 myScore.textContent = `Score: ${score}`;
-myScore.style.float = 'left';
-myScore.style.position = 'fixed';
 myScore.style.top = '5%';
-myScore.style.left = '28%';
 myScore.style.color = '#fff';
-gameContainer.appendChild(myScore);
+scoreContainer.appendChild(myScore);
 
 function checkAnswer(){
 
@@ -136,12 +140,19 @@ function checkAnswer(){
 
     } else {
         alert('Wrong answer. Better luck next round!');
-    }
-   
+    } 
+
+    if (score > localStorage.getItem('highscore')) {
+        localStorage.setItem('highscore', score);  
+        highestScore.textContent = 'Highest Score: ' + localStorage.getItem('highscore');    
+    }  
 }
 
 
-
+let highestScore = document.createElement('p');
+highestScore.textContent = 'Highest Score: ' + localStorage.getItem('highscore');
+highestScore.style.color = '#fff';
+highScoreContainer.appendChild(highestScore); 
 
 //Function to restart game
 
@@ -171,7 +182,9 @@ function loadInstructions(){
     document.querySelector('.emoji-sequence-container').style.display = 'none';
     document.querySelector('.buttons-container').style.display = 'none';
     document.querySelector('.settings').style.display = 'none';
+    banner.style.display = 'none';
     playerInput.style.display = 'none';
+    allScoresContainer.style.visibility= 'hidden';
     instructions.classList.add('active');
 
 }
@@ -182,10 +195,11 @@ function loadSettings(){
     document.querySelector('.emoji-sequence-container').style.display = 'none';
     document.querySelector('.buttons-container').style.display = 'none';
     document.querySelector('.instructions').style.display = 'none';
-    playerContainer.style.display = 'none';
+    allScoresContainer.style.visibility= 'hidden';
     settings.classList.add('active');
     playerInput.classList.remove('active');
     instructions.classList.remove('active');
+    banner.style.display = 'none';
 
 }
 gameSettings.addEventListener('click', loadSettings);
@@ -194,33 +208,33 @@ checkButton.addEventListener('click', checkAnswer);
 
 easyButton.addEventListener('click', () => {
     difficulty = 3;
-    easyButton.style.borderColor = 'gainsboro';
+    easyButton.style.borderColor = 'yellow';
     mediumButton.style.borderColor = 'black';
     hardButton.style.borderColor = 'black';
 });
 
 mediumButton.addEventListener('click', () => {
     difficulty = 5;
-    mediumButton.style.borderColor = 'gainsboro';
+    mediumButton.style.borderColor = 'yellow';
     easyButton.style.borderColor = 'black';
     hardButton.style.borderColor = 'black';
 });
 
 hardButton.addEventListener('click', () => {
     difficulty = 7;
-    hardButton.style.borderColor = 'gainsboro';
+    hardButton.style.borderColor = 'yellow';
     easyButton.style.borderColor = 'black';
     mediumButton.style.borderColor = 'black';
 });
 
 onButton.addEventListener('click', () => {
     myMusic.play();
-    onButton.style.borderColor = 'gainsboro';
+    onButton.style.borderColor = 'yellow';
     offButton.style.borderColor = 'black';
 });
 
 offButton.addEventListener('click', () => {
     myMusic.pause();
-    offButton.style.borderColor = 'gainsboro';
+    offButton.style.borderColor = 'yellow';
     onButton.style.borderColor = 'black';
 });

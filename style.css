@@ -16,7 +16,7 @@
 .flex-align-center{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 .flex-center-colwrap{
     display: flex;
@@ -28,7 +28,7 @@
 .flex-center-spacearound-colwrap{
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     flex-flow: column wrap;
     text-align: center;
 }
@@ -39,19 +39,13 @@
     flex-flow: row wrap;
     text-align: center;
 }
-.clearfix::after{
-    content: '';
-    display: none;
-    clear: both;
-}
 .main-container{
     margin: auto;
     display: flex;
     flex-flow: row wrap;
 }
 .column {
-    padding: 20px;
-    
+    padding: 20px; 
 }
 .left {
     height: 100.5vh;
@@ -61,12 +55,30 @@
 .logo-container img{
     width: 85%;
     margin: auto;
+    z-index: 900;
 }
 .right {
     width: 75%;
     height: 100.5vh;
     border: 15px solid indigo; 
-    background-color: #790679;   
+    background: linear-gradient(to top, #f702ce 0%, #000000 100%);;   
+    color: #fff;
+}
+.score-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+   }
+.score{
+    display: flex;
+    justify-content: flex-start;
+}
+.highscore{
+    display: flex;
+    justify-content: flex-end;
+}
+.banner{
+    width: 70%;
 }
 .instructions,
 .settings,
@@ -78,40 +90,30 @@
 .thoughts-container #emoji-counter{
     position: absolute;
     top: 100px;
-    display: none;
 }
 .emoji-sequence-container,
 .player-sequence-container{
-    width: 300px;
-    height: 300px;
+    width: 150px;    
+    height: 200px;
     position: absolute;
 }
 .player-sequence-container{
     top: 10%;
 }
 .emoji-sequence-container{
-    top: 40%;
+    top: 20%;
 }
-
 .emoji-carousel{
-    width: 75%;
-    margin: auto;
-    position: absolute;
-    top: 60%;
-    left: 53%;
-    transform: translate(-50%,-50%);
+    margin: 25px auto;
+    width: 80%;
 }
 .emoji-counter{
-    position: absolute;
-    top: 10%;
-    left: 51%;
-    margin-bottom: 10px;
-    color:yellow;
+    margin-bottom: 5px;
+    color:#fff;
 }
 .player-carousel{
-    margin: auto;
-    margin-top: 10px;
-    width: 70%;
+    margin: 20px auto;
+    width: 100%;
 }
 .emojiButton{ 
     bottom: 20%;
@@ -125,9 +127,11 @@
 }
 .instructions{
     margin-top: 25px;
+    width: 60%;
 }
 .settings{
-    margin-top: 0;
+    margin-top: 25px;
+    width: 60%;
 }
 .music p{
     margin-top: 20px;
@@ -139,27 +143,32 @@
 audio{
     display: none;
 }
-.menu-btn{
-    width: 90%;
+.menu-btn,
+.check-btn{
     height: 10vh;
     text-align: center;
     border: 1px solid black;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 10px auto;
+    justify-content: center;   
     border-radius: 40px;
     box-shadow: 5px 5px 5px #000;
     background: indigo;
     color: #fff;
     cursor: pointer;
 }
+.menu-btn{
+    width: 90%;
+    margin: 6px auto;
+}
 .menu-btn:nth-of-type(1){
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .logo-container p{
     position: absolute;
-    bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    bottom: 0px;
     font-size: 9px;
     color: gainsboro;
 } 
@@ -168,18 +177,16 @@ audio{
 
 }
 .check-btn{
-    background: #fff;
     position: absolute;
-    bottom: 15px;
     left: 35%;
     color: #fff;
-    width: 200px;
-    padding: 15px;
+    width: 30%;
+    padding: 10px;
     border-radius: 40px;
     border: 1px solid black;
     background: indigo;
     box-shadow: 5px 5px 5px #000;
-    margin: auto;
+    margin: 80px auto;
     cursor: pointer;
 }
 .button{
@@ -189,4 +196,141 @@ audio{
     color: #fff;
     cursor: pointer;
     border-color: black;   
+}
+
+/*** Media Queries - Default is based on Small Devices (731px to 823px) ***/
+
+@media only screen and (max-width: 730px) and (orientation: landscape){
+    .logo-container{
+        padding: 0;
+    }
+    .logo-container img{
+        width: 100%;
+    }
+    .instructions p,
+    .settings p{
+        font-size: 12px;
+    }
+    .menu-btn{
+        width: 87%;
+        padding: 5px;
+        font-size: 11px;
+    }
+    .check-btn{
+        margin-top: 60px;
+        width: 35%;
+        font-size: 12px;
+        left: 32%;
+    }
+    .logo-container p{
+        font-size: 8px;
+    }
+    .player-sequence-container{
+        height: 110px;
+        top: 20%;
+      }
+    .player-carousel{
+        margin: 20px auto;
+        width: 60%;
+    }
+    .emojiButton{ 
+        margin: 0 3px 0 3px; 
+    }
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape){
+    .banner{
+        margin-top: 100px;
+    }
+    .logo-container img{
+        width: 100%;
+    }
+    .menu-btn{
+        width: 90%;
+        margin-top: 15px;
+        padding: 5px;
+    }
+    .menu-btn:nth-of-type(1){
+        margin-top: 50px;
+    }
+    .emoji-sequence-container,
+    .player-sequence-container{
+        width: 350px;    
+        height: 350px;
+        position: absolute;
+    }
+    .player-sequence-container{        
+        top: 15%;
+    }
+    .emoji-carousel{
+        width: 70%;
+    }
+    .player-carousel{
+        width: 80%;
+    }
+    .emojiButton{ 
+        margin-top: 20px;
+        width: 10%;
+    }
+    .check-btn{
+        margin: 130px auto;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (orientation: landscape){
+    .banner{
+        margin-top: 10px;
+    }
+    .menu-btn:nth-of-type(1){
+        margin-top: 20px;
+    }
+    .menu-btn{
+        margin-top: 5px;
+    }
+    .player-sequence-container{
+        width: 350px;    
+        height: 250px;
+    }
+    .player-carousel{
+        width: 60%;
+    }
+    .check-btn{
+        width: 20%;
+        left: 37%;
+    }
+}
+
+@media only screen and (min-width: 1500px) and (orientation: landscape){
+    .menu-btn:nth-of-type(1){
+        margin-top: 40px;
+    }
+    .menu-btn{
+        width: 70%;
+        margin: 8px auto;
+        font-size: 24px;
+    }
+    .logo-container p{
+        font-size: 12px;
+    }
+    .emoji-sequence-container{
+        width: 400px;    
+        height: 450px;
+    }
+    .player-sequence-container{
+        width: 400px;    
+        height: 350px;
+    }
+    .emoji-carousel{
+        width: 85%;
+    }
+    .player-carousel{
+        margin-top: 30px;
+        width: 80%;
+    }
+    .check-btn{
+        margin-top: 190px;
+        width: 20%;
+        left: 37%;
+        font-size: 24px;
+    }
 }
