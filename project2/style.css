@@ -86,6 +86,13 @@
     display: none;
     margin: auto;
 }
+.instructions p,
+.instructions ul li{
+    font-size: 12px;
+}
+.instructions p{
+    margin: 10px;
+}
 .thoughts-container #emoji-carousel,
 .thoughts-container #emoji-counter{
     position: absolute;
@@ -278,6 +285,10 @@ audio{
     .check-btn{
         margin: 130px auto;
     }
+    .instructions p,
+    .instructions ul li{
+        font-size: 18px;
+    }
 }
 
 @media only screen and (min-width: 1200px) and (orientation: landscape){
@@ -301,6 +312,10 @@ audio{
     .check-btn{
         width: 20%;
         left: 37%;
+    }
+    .instructions p,
+    .instructions ul li{
+        font-size: 16px;
     }
 }
 
@@ -340,9 +355,17 @@ audio{
         left: 37%;
         font-size: 24px;
     }
+    .instructions p,
+    .instructions ul li{
+        font-size: 16px;
+    }
 }
 @media only screen and (min-width: 1500px) and (orientation: landscape){
     .banner{
         margin-top: 150px;
+    }
+    .instructions p,
+    .instructions ul li{
+        font-size: 16px;
     }
 }

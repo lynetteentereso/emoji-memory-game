@@ -3,6 +3,7 @@ let emojiArray = [];
 let playerArray = [];
 let difficulty = 3;
 let score = 0;
+let timer = 1800;
 let gameContainer = document.querySelector('.game-container');
 let buttonsContainer = document.querySelector('.buttons-container');
 let playerContainer = document.querySelector('.player-sequence-container');
@@ -29,6 +30,15 @@ let banner = document.getElementById('banner');
 easyButton.style.borderColor = 'yellow';
 offButton.style.borderColor = 'yellow';
 
+if(localStorage.getItem('highscore') === null){
+    localStorage.setItem('highscore', 0);
+}
+
+window.onload = function() {
+    
+    alert('This game is best played in landscape mode. Enjoy!');
+        
+  };
 
 //Function to create emoji buttons and add user input to playerArray[]
 
@@ -90,7 +100,7 @@ function startNewGame (){
     playerInput.src = 'img/blank.png';
     userIndex=0;
     counter=0;  
-    interval = setInterval(emojiArrayImage, 2000);   
+    interval = setInterval(emojiArrayImage, timer);   
 }
 
 let counter = 0;
@@ -214,6 +224,7 @@ checkButton.addEventListener('click', checkAnswer);
 
 easyButton.addEventListener('click', () => {
     difficulty = 3;
+    timer = 1800;
     easyButton.style.borderColor = 'yellow';
     mediumButton.style.borderColor = 'black';
     hardButton.style.borderColor = 'black';
@@ -222,6 +233,7 @@ easyButton.addEventListener('click', () => {
 
 mediumButton.addEventListener('click', () => {
     difficulty = 5;
+    timer = 1300;
     mediumButton.style.borderColor = 'yellow';
     easyButton.style.borderColor = 'black';
     hardButton.style.borderColor = 'black';
@@ -229,6 +241,7 @@ mediumButton.addEventListener('click', () => {
 
 hardButton.addEventListener('click', () => {
     difficulty = 7;
+    timer = 1000;
     hardButton.style.borderColor = 'yellow';
     easyButton.style.borderColor = 'black';
     mediumButton.style.borderColor = 'black';
